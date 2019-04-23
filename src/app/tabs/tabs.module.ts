@@ -6,9 +6,11 @@ import { FormsModule } from '@angular/forms';
 import { TabsPageRoutingModule } from './tabs.router.module';
 
 import { TabsPage } from './tabs.page';
+import { PipesModule } from '../pipes/pipes.module';
 
 @NgModule({
   imports: [
+    PipesModule,
     IonicModule,
     CommonModule,
     FormsModule,

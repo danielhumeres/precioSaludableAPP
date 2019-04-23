@@ -8,5 +8,28 @@
 
 <ion-content ion-padding>
     <!-- Searchbar with a placeholder -->
-  <ion-searchbar placeholder="Busca tu fármaco aquí" ion-padding-top color="tertiary"></ion-searchbar>
+  <ion-searchbar placeholder="Busca tu fármaco aquí" 
+                 ion-padding-top color="tertiary" 
+                 animated
+                 (ionChange)="buscarFarmaco($event)">
+                 
+  </ion-searchbar>
+
+  <ion-list *ngIf="farmacos.length === 0">
+      <ion-item *ngFor="let i of [1,1,1,1,1,1,1,1,1]">
+        <ion-label>
+         <ion-skeleton-text width="40%"></ion-skeleton-text>
+         <ion-skeleton-text width="80%"></ion-skeleton-text>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+  <ion-list *ngIf="farmacos.length > 0">
+    <ion-item *ngFor="let farmaco of farmacos | filtro:textoBuscar">
+      <ion-label>
+        <h4>{{farmaco.name}} </h4>
+        <h3>{{farmaco.email}}</h3>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
